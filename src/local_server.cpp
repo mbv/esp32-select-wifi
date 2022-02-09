@@ -19,6 +19,7 @@ void startHttpServer() {
     server.on("/", handleRoot);
     server.on("/connect", handleConnect);
     server.on("/saveconfig", handleSaveConfig);
+    server.on("/clear", handleClearConfig);
     //httpUpdater.setup(&server);
     server.on("/hotspot-detect.html", handleApple); // iOS
     server.on("/generate_204", handleRoot);  // Android captive portal. Maybe not needed. Might be handled by notFound handler.

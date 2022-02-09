@@ -9,7 +9,6 @@
 #define EEPROM_INDEX_WIFI_CONFIGURATION 0
 
 void clearLastFieldInEEPROM();
-void clearDeviceIdInEEPROM();
 void loadEEPROM_lazy(bool force = false); 
 void loadEEPROM();
 void saveEEPROM();

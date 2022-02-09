@@ -81,6 +81,7 @@ void handleRoot() {
 
     server.sendContent(String(F(
         "<br /><h2><a href='/connect'>Connect to WIFI</a></h2>"
+        "<br /><h2><a href='/clear'>Clear WIFI</a></h2>"
         "</body></html>"
     )));
 }
@@ -204,6 +205,14 @@ void handleSaveConfig() {
     server.send(302, "text/plain", "");         // Empty content inhibits Content-length header so we have to close the socket ourselves.
     server.client().stop();  // Stop is needed because we sent no content length
     //saveSerialNumber();
+}
+
+void handleClearConfig() {
+    Serial.println("Clear wifi config");
+    clearLastFieldInEEPROM();
+    server.sendHeader("Location", String("http://") + toStringIp(server.client().localIP()), true);
+    server.send(302, "text/plain", "");  // Empty content inhibits Content-length header so we have to close the socket ourselves.
+    server.client().stop();  // Stop is needed because we sent no content length
 }
 
 void handleNotFound() {

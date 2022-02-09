@@ -19,4 +19,5 @@ void handleConnect();
 void handleApple();
 boolean captivePortal();
 void handleSaveConfig();
+void handleClearConfig();
 void handleNotFound();
